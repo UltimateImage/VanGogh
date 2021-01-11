@@ -1,0 +1,5 @@
+mode: debug  # debug, release, sc like Gin
+port: 8866   # port
+name: VanGogh
+max_ping_count: 10 # ping server
+url: http://127.0.0.1
