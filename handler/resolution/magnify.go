@@ -1,7 +1,7 @@
 package resolution
 
 import (
-	"VanGogh/pkg/errors"
+	"github.com/UltimateImage/VanGogh/pkg/errors"
 
 	"github.com/gin-gonic/gin"
 )

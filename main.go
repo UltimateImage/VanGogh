@@ -1,13 +1,14 @@
 package main
 
 import (
-	"VanGogh/conf"
-	"VanGogh/router"
 	"errors"
 	"fmt"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/UltimateImage/VanGogh/conf"
+	"github.com/UltimateImage/VanGogh/router"
 
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/pflag"
