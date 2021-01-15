@@ -1,6 +1,6 @@
-package error
+package errors
 
 const (
-	//OK code
-	OK = 200
+	//INVALIDIMAGE code
+	INVALIDIMAGE = 401
 )

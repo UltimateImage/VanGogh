@@ -15,7 +15,7 @@ import (
 )
 
 var (
-	cfg = pflag.StringP("config", "c", "", "apiserver config file path.")
+	cfg = pflag.StringP("config", "c", "", "server config file path.")
 )
 
 func main() {
@@ -25,7 +25,7 @@ func main() {
 	}
 
 	gin.SetMode(viper.GetString("mode"))
-    g := router.Setup();
+	g := router.Setup()
 
 	// Check server response
 	go func() {
@@ -35,7 +35,7 @@ func main() {
 		log.Print("The server has been deployed successfully.")
 	}()
 
-    // Start HTTP Server & Log
+	// Start HTTP Server & Log
 	log.Printf("Start to listening the incoming requests on http address: %s", viper.GetString("port"))
 	log.Printf(http.ListenAndServe(fmt.Sprintf(":%s", viper.GetString("port")), g).Error())
 }

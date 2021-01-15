@@ -1,8 +1,8 @@
-package error
+package errors
 
 var (
-	//Success status
-	Success = &Error{Code: OK, Message: "Success"}
+	//InvalidImage status
+	InvalidImage = &Error{Code: INVALIDIMAGE, Message: "Image uploaded is invalid"}
 )
 
 //Error represents customized errors
@@ -12,7 +12,7 @@ type Error struct {
 	Err     error
 }
 
-//NewError create a customized error
+//NewError create a customized errors
 func NewError(code int, message string, err error) *Error {
 	return &Error{Code: code, Message: message, Err: err}
 }
