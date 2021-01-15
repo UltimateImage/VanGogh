@@ -15,7 +15,7 @@ import (
 )
 
 var (
-	cfg = pflag.StringP("config", "c", "", "server config file path.")
+	cfg = pflag.StringP("config", "c", "", "apiserver config file path.")
 )
 
 func main() {
@@ -36,8 +36,8 @@ func main() {
 	}()
 
 	// Start HTTP Server & Log
-	log.Printf("Start to listening the incoming requests on http address: %s", viper.GetString("port"))
-	log.Printf(http.ListenAndServe(fmt.Sprintf(":%s", viper.GetString("port")), g).Error())
+	log.Printf("Start to listening the incoming requests on http address: %s\n", viper.GetString("port"))
+	log.Println(http.ListenAndServe(fmt.Sprintf(":%s", viper.GetString("port")), g).Error())
 }
 
 func pingServer() error {
