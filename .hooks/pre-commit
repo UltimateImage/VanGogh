@@ -12,9 +12,10 @@ PASS=true
 
 for FILE in $STAGED_GO_FILES
 do
-    # skip vendor
-    if [[ $FILE == "vendor"* ]];then
-        continue
+    # golint
+    golangci-lint run
+    if [[ $? == 1 ]]; then
+        PASS=false
     fi
 
     # goimports
@@ -23,19 +24,7 @@ do
         PASS=false
     fi
 
-    # golint
-    golint "-set_exit_status" $FILE
-    if [[ $? == 1 ]]; then
-        PASS=false
-    fi
-
-    # go tool vet
-    go vet $FILE
-    if [[ $? != 0 ]]; then
-        PASS=false
-    fi
-
-  # format
+    # format
     UNFORMATTED=$(gofmt -l $FILE)
     if [[ "$UNFORMATTED" != "" ]];then
         gofmt -w $PWD/$UNFORMATTED

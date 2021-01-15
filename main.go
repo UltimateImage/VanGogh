@@ -25,7 +25,7 @@ func main() {
 	}
 
 	gin.SetMode(viper.GetString("mode"))
-    g := router.Setup();
+	g := router.Setup()
 
 	// Check server response
 	go func() {
@@ -35,9 +35,9 @@ func main() {
 		log.Print("The server has been deployed successfully.")
 	}()
 
-    // Start HTTP Server & Log
-	log.Printf("Start to listening the incoming requests on http address: %s", viper.GetString("port"))
-	log.Printf(http.ListenAndServe(fmt.Sprintf(":%s", viper.GetString("port")), g).Error())
+	// Start HTTP Server & Log
+	log.Printf("Start to listening the incoming requests on http address: %s\n", viper.GetString("port"))
+	log.Println(http.ListenAndServe(fmt.Sprintf(":%s", viper.GetString("port")), g).Error())
 }
 
 func pingServer() error {
