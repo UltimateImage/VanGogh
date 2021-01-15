@@ -20,17 +20,14 @@ var (
 
 func main() {
 	pflag.Parse()
-	gin.SetMode(viper.GetString("mode"))
-	g := gin.New()
-	g.GET("/", func(c *gin.Context) {
-		c.String(http.StatusAccepted, "Welcome !!")
-	})
-	// sc server
-	router.Load(g)
 	if err := conf.Init(*cfg); err != nil {
 		panic(err)
 	}
-	// check server status
+
+	gin.SetMode(viper.GetString("mode"))
+    g := router.Setup();
+
+	// Check server response
 	go func() {
 		if err := pingServer(); err != nil {
 			log.Fatal("The server has no response, or it might took too long to start up.", err)
@@ -38,6 +35,7 @@ func main() {
 		log.Print("The server has been deployed successfully.")
 	}()
 
+    // Start HTTP Server & Log
 	log.Printf("Start to listening the incoming requests on http address: %s", viper.GetString("port"))
 	log.Printf(http.ListenAndServe(fmt.Sprintf(":%s", viper.GetString("port")), g).Error())
 }
