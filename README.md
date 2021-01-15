@@ -3,8 +3,8 @@
 A powerful collection of image tool set.
 
 ## How to Develop?
-* Install golint and goimports
-  * `go get -u golang.org/x/lint/golint`
+* Install [golangci-lint](https://golangci-lint.run/) and [goimports](https://github.com/bradfitz/goimports)
+  * `brew install golangci-lint` if Mac OS
   * `go get -u golang.org/x/tools/cmd/goimports`
   * you might need sudo to install packages in /bin
 * Set git hooks
@@ -13,4 +13,5 @@ A powerful collection of image tool set.
 ## Plan
 
 ## Todo
-* Project setup
+- [x] Project setup
+- [ ] Image magnify
