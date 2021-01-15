@@ -1,16 +1,15 @@
 package resolution
 
 import (
-	"github.com/UltimateImage/VanGogh/pkg/errors"
-
+	"github.com/UltimateImage/VanGogh/pkg/errs"
 	"github.com/gin-gonic/gin"
 )
 
-//HandleMagnify magnifies a given picture
-func HandleMagnify(c *gin.Context) {
+//MagnifyHandler magnifies a given picture
+func MagnifyHandler(c *gin.Context) {
 	_, _, err := c.Request.FormFile("file")
 	if err != nil {
-		c.JSON(410, gin.H{"errors": errors.InvalidImage})
+		c.JSON(410, gin.H{"errs": errs.INVALIDIMAGE})
 		return
 	}
 }
