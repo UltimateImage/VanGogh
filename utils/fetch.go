@@ -1,12 +1,26 @@
 package utils
 
 import (
+	"image"
 	"io/ioutil"
 	"net/http"
 )
 
-//GetImageByURL gets a image from a url
-func GetImageByURL(url string) ([]byte, error) {
+//GetImageByUrl gets a image from given url
+func GetImageByUrl(url string) (*image.Image, error) {
+	pixels, err := GetBytesByURL(url)
+	if err != nil {
+		return nil, err
+	}
+	img, err := BytesToImage(pixels)
+	if err != nil {
+		return nil, err
+	}
+	return img, nil
+}
+
+//GetBytesByURL gets bytes from a url
+func GetBytesByURL(url string) ([]byte, error) {
 	resp, err := http.Get(url)
 	if err != nil {
 		return nil, err
