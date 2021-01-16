@@ -11,17 +11,11 @@ import (
 	"github.com/UltimateImage/VanGogh/router"
 
 	"github.com/gin-gonic/gin"
-	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 )
 
-var (
-	cfg = pflag.StringP("config", "c", "", "apiserver config file path.")
-)
-
 func main() {
-	pflag.Parse()
-	if err := conf.Init(*cfg); err != nil {
+	if err := conf.Init(""); err != nil {
 		panic(err)
 	}
 

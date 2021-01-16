@@ -16,7 +16,7 @@ func Setup() *gin.Engine {
 	g := gin.New()
 	g.Use(gin.Recovery())
 	g.Use(middlewares.Secure)
-
+	g.Use(middlewares.LoggerToFile())
 	g.NoRoute(func(c *gin.Context) {
 		c.JSON(http.StatusNotFound, gin.H{"error": errs.NotFound})
 	})
