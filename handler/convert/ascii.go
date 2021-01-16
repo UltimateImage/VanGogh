@@ -12,7 +12,7 @@ import (
 func AsciiHandler(c *gin.Context) {
 	img, err := utils.ReadImageFromCtx(c)
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": errs.NewError(errs.INVALIDIMAGE, "Invalid Image", err)})
+		c.JSON(http.StatusBadRequest, gin.H{"error": errs.NewError(errs.INVALIDIMAGE, "Invalid Image", c.Error(err))})
 		return
 	}
 	convertOptions := convert.DefaultOptions
