@@ -5,6 +5,7 @@
 *.so
 *.dylib
 main
+VanGogh
 # Test binary, built with `go sc -c`
 *.test
 
