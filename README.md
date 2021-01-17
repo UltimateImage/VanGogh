@@ -1,3 +1,4 @@
+![VanGogh](https://socialify.git.ci/UltimateImage/VanGogh/image?description=1&font=Bitter&forks=1&issues=1&language=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Light)
 # VanGogh
 
 A powerful collection of image tool set.
@@ -14,4 +15,5 @@ A powerful collection of image tool set.
 
 ## Todo
 - [x] Project setup
+- [x] Ascii Image Generator 
 - [ ] Image magnify
